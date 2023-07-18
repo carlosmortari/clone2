@@ -1,0 +1,173 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --bg:#040924;
+
+    --bg-card:white;
+
+    --tt-color:#0C3440;
+    --txt-label:#00453A;
+
+    --outline-input:#02799D;
+    --bg-input:#DCE2E9;
+    --border-input:#babfc4;
+    --placeholder-input:#495057;
+
+    --bg-btn:#02799D;
+    --txt-btn:white;
+    --bg-btn-hover:#025d79;
+
+    --bg-error:#F03E3E;
+    --txt-error:white;
+
+    --bg-popup:rgba(30, 30, 30, 0.829);
+    --txt-popup:#0C3440;
+}
+
+body{
+    height: 100vh;
+
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg);
+
+    display: grid;
+    place-content: center;
+}
+
+.card{
+    background-color: var(--bg-card);
+    padding: 64px;
+    padding-top: 46px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.438);
+}
+
+.titulo{
+    color: var(--tt-color);
+    text-align: center;
+}
+
+form{
+    margin-top: 32px;
+}
+
+.conteiner-input{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.conteiner-input label{
+    color: var(--txt-label);
+}
+
+.conteiner-input input{
+    padding: 16px;
+    background-color: var(--bg-input);
+    border: 1px solid var(--border-input);
+    border-radius: 5px;
+}
+
+/* tirar setas do input */
+.conteiner-input input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.conteiner-input input:focus{
+    outline: 2px solid var(--outline-input); 
+}
+
+.conteiner-input + .conteiner-input {
+    margin-top: 16px;
+}
+
+.conteiner-input input::placeholder{
+    color:var(--placeholder-input);
+}
+
+#btn-calcular{
+    margin-top: 32px;
+    width: 100%;
+    padding: 16px;
+    background-color: var(--bg-btn);
+    color: var(--txt-btn);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    transition: background .3s;
+}
+
+#btn-calcular:hover{
+    background-color: var(--bg-btn-hover);
+}
+
+/* popup */
+
+#conteiner-popup.open{
+    visibility: visible;
+    opacity: 1;
+}
+
+#conteiner-popup{
+    position: absolute;
+    inset: 0;
+    background-color: var(--bg-popup);
+
+    display: grid;
+    place-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+}
+
+#conteiner-popup .card{
+    position: relative;
+}
+
+#btn-fechar{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+
+    cursor: pointer;
+}
+
+/* Mensagem de erro */
+#mensagem-erro{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    
+    background-color: var(--bg-error);
+    padding: 10px 0;
+    text-align: center;
+    color: var(--txt-error);
+    font-weight: bold;
+    
+    visibility: hidden;
+    opacity: 0;
+
+    transition: .5s;
+
+    transform: translateY(0%);
+}
+
+#mensagem-erro.open{
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(2%);
+}
+
+
